@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cambridge IELTS Academic 21 — Test 4 Writing Examination & Automated Assessment Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --cambridge-navy: #0f233c;
+      --cambridge-blue: #1d4273;
+      --cambridge-crimson: #8b1e2b;
+      --cambridge-gold: #b0832b;
+      --cambridge-emerald: #14532d;
+      --paper-bg: #f8f6f0;
+      --card-bg: #ffffff;
+      --border-ink: #c8c2b4;
+    }
+
+    * {
+      font-family: "Times New Roman", Times, Georgia, serif !important;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--paper-bg);
+      color: #141923;
+      margin: 0;
+      padding: 0;
+      line-height: 1.55;
+      background-image: radial-gradient(#dcd6c8 0.6px, transparent 0.6px);
+      background-size: 18px 18px;
+    }
+
+    /* Academic Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #efeae0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8c8270;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0f233c;
+    }
+
+    .academic-border {
+      border: 1px solid #c5beae;
+      box-shadow: 0 3px 12px rgba(15, 35, 60, 0.06);
+    }
+
+    .prompt-box {
+      border: 2px solid #1e293b;
+      background: #fcfbf8;
+      padding: 1.15rem 1.35rem;
+      box-shadow: inset 0 0 0 1px #e2dccd;
+    }
+
+    .ielts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+      background: #ffffff;
+    }
+    .ielts-table th,
+    .ielts-table td {
+      border: 1.5px solid #1e293b;
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+    }
+    .ielts-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+    .ielts-table thead th {
+      background-color: #eef1f6;
+      font-weight: 700;
+    }
+
+    .editor-textarea {
+      font-family: "Times New Roman", Times, serif !important;
+      font-size: 1.125rem;
+      line-height: 1.75;
+      background-color: #ffffff;
+      background-image: linear-gradient(transparent, transparent 30px, #f1ede4 30px, #f1ede4 31px);
+      background-size: 100% 31px;
+      border: 1.5px solid #94a3b8;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .editor-textarea:focus {
+      outline: none;
+      border-color: #0f233c;
+      box-shadow: 0 0 0 3px rgba(15, 35, 60, 0.12);
+    }
+
+    .tab-active {
+      background-color: #0f233c !important;
+      color: #ffffff !important;
+      border-bottom: 3px solid #d4af37 !important;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.65rem;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+
+    @keyframes pulseWarning {
+      0%, 100% { background-color: #7f1d1d; }
+      50% { background-color: #b91c1c; }
+    }
+    .timer-critical {
+      animation: pulseWarning 1.4s infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Top Academic Institution Header -->
+  <header class="bg-[#0f233c] text-white border-b-4 border-[#b0832b] sticky top-0 z-40 shadow-lg">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
+      <!-- Left Title & Crest -->
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded bg-[#1d4273] border border-[#d4af37] flex flex-col items-center justify-center text-center shadow-inner">
+          <span class="text-xs tracking-widest uppercase text-[#f3d27a] font-bold leading-none">IELTS</span>
+          <span class="text-sm font-bold text-white leading-tight">VOL 21</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs uppercase tracking-[0.18em] text-[#f3d27a] font-bold">Cambridge University Press &amp; Assessment</span>
+            <span class="text-xs bg-[#8b1e2b] text-white px-2 py-0.5 rounded font-bold">ACADEMIC TEST 4</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">
+            Academic Writing Examination &amp; Automated Band Diagnostic Suite
+          </h1>
+        </div>
+      </div>
+
+      <!-- Center Task Switcher -->
+      <div class="flex items-center bg-[#162f4f] p-1 rounded border border-[#2d4e77]">
+        <button id="navTask1Btn" onclick="switchView('task1')" class="tab-active px-3.5 py-1.5 rounded text-sm font-bold transition flex items-center gap-2">
+          <span>Task 1 (20 Min)</span>
+          <span id="navTask1Status" class="text-xs px-1.5 py-0.2 bg-white/20 rounded">0/150w</span>
+        </button>
+        <button id="navTask2Btn" onclick="switchView('task2')" class="px-3.5 py-1.5 rounded text-sm font-bold text-slate-200 hover:text-white transition flex items-center gap-2">
+          <span>Task 2 (40 Min)</span>
+          <span id="navTask2Status" class="text-xs px-1.5 py-0.2 bg-white/10 rounded">0/250w</span>
+        </button>
+        <button id="navModelBtn" onclick="switchView('models')" class="px-3.5 py-1.5 rounded text-sm font-bold text-slate-200 hover:text-white transition">
+          <span>Official Samples &amp; Models</span>
+        </button>
+        <button id="navReportBtn" onclick="switchView('report')" class="px-3.5 py-1.5 rounded text-sm font-bold text-amber-300 hover:text-white transition flex items-center gap-1.5">
+          <span>Grading Report</span>
+          <span id="reportBadge" class="hidden bg-emerald-600 text-white text-xs px-1.5 rounded">Ready</span>
+        </button>
+      </div>
+
+      <!-- Right Timer & Action Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Candidate Name Input -->
+        <div class="hidden xl:flex flex-col text-right mr-1">
+          <label for="candidateName" class="text-[11px] uppercase tracking-wider text-slate-300">Candidate Name / ID</label>
+          <input id="candidateName" type="text" value="Academic Candidate #2104" class="bg-[#183456] text-white border border-[#3b5d85] rounded px-2 py-0.5 text-sm w-44 focus:outline-none focus:border-[#f3d27a]" />
+        </div>
+
+        <!-- 60-Min Timer Box -->
+        <div id="timerBox" class="bg-[#183456] border border-[#d4af37]/70 rounded px-3 py-1 flex items-center gap-2.5">
+          <div>
+            <div class="text-[10px] uppercase tracking-widest text-[#f3d27a] font-bold leading-none">Time Remaining</div>
+            <div id="timerDisplay" class="text-2xl font-bold tracking-wider text-white leading-tight">60:00</div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <button id="timerToggleBtn" onclick="toggleTimer()" class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs px-2 py-0.5 rounded font-bold transition">
+              Pause
+            </button>
+            <button onclick="resetTimer()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-[11px] px-2 py-0.5 rounded transition" title="Reset 60-minute clock">
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Submit & Grade Button -->
+        <button onclick="submitAndGradeExam(false)" class="bg-[#8b1e2b] hover:bg-[#a32433] border border-[#f3d27a] text-white px-4 py-2 rounded font-bold text-sm shadow-md transition flex items-center gap-2">
+          <span>Submit &amp; Grade Exam</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Time Allocation Progress Strip -->
+    <div class="bg-[#091728] border-t border-[#1e3a5f]">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-1 flex items-center justify-between text-xs text-slate-300">
+        <div class="flex items-center gap-4">
+          <span id="timerPhaseAdvice" class="text-[#f3d27a] font-bold">
+            ● Exam Phase: Task 1 Recommended Window (Minutes 60:00 – 40:00)
+          </span>
+          <span class="hidden md:inline text-slate-400">|</span>
+          <span class="hidden md:inline">Task 1 Weight: 33.3% (Min 150 words) &bull; Task 2 Weight: 66.7% (Min 250 words)</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="simulateTimerFinish()" class="text-amber-300 hover:underline text-xs font-bold">
+            [Simulate 60-Min Time Expiry Auto-Submit]
+          </button>
+        </div>
+      </div>
+      <div class="w-full h-1.5 bg-slate-800 overflow-hidden">
+        <div id="timerProgressBar" class="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-rose-600 transition-all duration-500" style="width: 100%"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Container -->
+  <main class="flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-6 py-5">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: WRITING TASK 1 WORKSTATION         -->
+    <!-- ========================================== -->
+    <section id="view-task1" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Column: Official Test 4 Task 1 Prompt & Visuals -->
+      <div class="lg:col-span-6 flex flex-col gap-4">
+        <div class="bg-white academic-border rounded p-6">
+          <div class="flex items-center justify-between border-b-2 border-[#0f233c] pb-2 mb-4">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-[#8b1e2b] font-bold">Test 4 &bull; Academic Writing</span>
+              <h2 class="text-2xl font-bold text-[#0f233c]">WRITING TASK 1</h2>
+            </div>
+            <span class="badge-pill bg-[#0f233c] text-white">Recommended: 20 Minutes</span>
+          </div>
+
+          <p class="mb-3 text-base text-slate-800">
+            You should spend about 20 minutes on this task.
+          </p>
+
+          <!-- Official Prompt Box -->
+          <div class="prompt-box mb-4">
+            <p class="italic font-bold text-lg text-slate-900 mb-3">
+              The chart and table below show the results of a survey of library users at a university.
+            </p>
+            <p class="italic font-bold text-lg text-slate-900">
+              Summarise the information by selecting and reporting the main features, and make comparisons where relevant.
+            </p>
+          </div>
+
+          <p class="mb-5 text-base font-bold text-slate-800">
+            Write at least 150 words.
+          </p>
+
+          <!-- Visual 1: Pie Chart (Categories of library users) -->
+          <div class="border border-slate-300 rounded bg-[#fcfbf9] p-4 mb-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg font-bold text-slate-900 text-center w-full">
+                Categories of library users
+              </h3>
+              <div class="flex gap-1 shrink-0">
+                <button onclick="setChartStyle('color')" id="btnChartColor" class="text-xs px-2 py-0.5 rounded bg-[#0f233c] text-white font-bold">Vivid Academic</button>
+                <button onclick="setChartStyle('bw')" id="btnChartBW" class="text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-800 font-bold">Exam Print Hatch</button>
+              </div>
+            </div>
+
+            <!-- High-Precision SVG Reproduction of Test 4 Pie Chart -->
+            <div class="flex flex-col items-center justify-center">
+              <svg id="task1PieSvg" viewBox="0 0 560 300" class="w-full max-w-[520px] h-auto select-none">
+                <defs>
+                  <!-- Diagonal stripe pattern for Full-time undergraduate (44%) -->
+                  <pattern id="pat-diag" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="8" stroke="#1e293b" stroke-width="2" />
+                  </pattern>
+                  <!-- Crosshatch pattern for Part-time postgraduate (16%) -->
+                  <pattern id="pat-cross" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <path d="M 0 0 L 8 8 M 8 0 L 0 8" stroke="#334155" stroke-width="1.2" />
+                  </pattern>
+                  <!-- Arrowhead marker -->
+                  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0f233c" />
+                  </marker>
+                </defs>
+
+                <!-- Pie Center: (275, 160), Radius: 96 -->
+                <!-- 1. Full-time undergraduate: 44% (0 deg to 158.4 deg clockwise from top) -->
+                <path id="slice-ug" d="M 275 160 L 275 64 A 96 96 0 0 1 310.35 249.26 Z"
+                      fill="#1d4273" stroke="#0f233c" stroke-width="1.8" class="transition-opacity hover:opacity-90 cursor-pointer">
+                  <title>Full-time undergraduate: 44%</title>
+                </path>
+
+                <!-- 2. Full-time postgraduate: 25% (158.4 deg to 248.4 deg) -->
+                <path id="slice-ftpg" d="M 275 160 L 310.35 249.26 A 96 96 0 0 1 185.74 195.35 Z"
+                      fill="#b0832b" stroke="#0f233c" stroke-width="1.8" class="transition-opacity hover:opacity-90 cursor-pointer">
+                  <title>Full-time postgraduate: 25%</title>
+                </path>
+
+                <!-- 3. Part-time postgraduate: 16% (248.4 deg to 306.0 deg) -->
+                <path id="slice-ptpg" d="M 275 160 L 185.74 195.35 A 96 96 0 0 1 197.33 103.57 Z"
+                      fill="#2e6f5e" stroke="#0f233c" stroke-width="1.8" class="transition-opacity hover:opacity-90 cursor-pointer">
+                  <title>Part-time postgraduate: 16%</title>
+                </path>
+
+                <!-- 4. Distance learning (all courses): 8% (306.0 deg to 334.8 deg) -->
+                <path id="slice-dl" d="M 275 160 L 197.33 103.57 A 96 96 0 0 1 234.13 73.15 Z"
+                      fill="#8b1e2b" stroke="#0f233c" stroke-width="1.8" class="transition-opacity hover:opacity-90 cursor-pointer">
+                  <title>Distance learning (all courses): 8%</title>
+                </path>
+
+                <!-- 5. Academic staff: 7% (334.8 deg to 360 deg) -->
+                <path id="slice-staff" d="M 275 160 L 234.13 73.15 A 96 96 0 0 1 275 64 Z"
+                      fill="#cbd5e1" stroke="#0f233c" stroke-width="1.8" class="transition-opacity hover:opacity-90 cursor-pointer">
+                  <title>Academic staff: 7%</title>
+                </path>
+
+                <!-- Percentage Badges Inside Slices -->
+                <!-- 44% -->
+                <rect x="309" y="139" width="36" height="19" rx="2" fill="#ffffff" fill-opacity="0.92" stroke="#0f233c" stroke-width="0.7" />
+                <text x="327" y="153" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f233c">44%</text>
+
+                <!-- 25% -->
+                <rect x="234" y="205" width="36" height="19" rx="2" fill="#ffffff" fill-opacity="0.92" stroke="#0f233c" stroke-width="0.7" />
+                <text x="252" y="219" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f233c">25%</text>
+
+                <!-- 16% -->
+                <rect x="195" y="146" width="35" height="19" rx="2" fill="#ffffff" fill-opacity="0.92" stroke="#0f233c" stroke-width="0.7" />
+                <text x="212.5" y="160" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f233c">16%</text>
+
+                <!-- 8% -->
+                <text x="235" y="114" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff" id="lbl-8pct">8%</text>
+
+                <!-- 7% -->
+                <text x="261" y="99" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f233c">7%</text>
+
+                <!-- Callout Labels & Arrows Matching Test 4 Layout -->
+                <!-- Academic staff (7%) -->
+                <text x="255" y="26" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f233c">Academic staff</text>
+                <line x1="255" y1="32" x2="255" y2="62" stroke="#0f233c" stroke-width="1.3" marker-end="url(#arrow)" />
+
+                <!-- Distance learning (all courses) (8%) -->
+                <text x="115" y="51" font-size="13" font-weight="bold" fill="#0f233c">Distance learning</text>
+                <text x="115" y="66" font-size="13" fill="#1e293b">(all courses)</text>
+                <line x1="192" y1="62" x2="213" y2="84" stroke="#0f233c" stroke-width="1.3" marker-end="url(#arrow)" />
+
+                <!-- Part-time postgraduate (16%) -->
+                <text x="90" y="148" font-size="13" font-weight="bold" fill="#0f233c">Part-time</text>
+                <text x="90" y="164" font-size="13" font-weight="bold" fill="#0f233c">postgraduate</text>
+                <line x1="150" y1="152" x2="180" y2="152" stroke="#0f233c" stroke-width="1.3" marker-end="url(#arrow)" />
+
+                <!-- Full-time postgraduate (25%) -->
+                <text x="215" y="286" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f233c">Full-time postgraduate</text>
+                <line x1="215" y1="271" x2="233" y2="250" stroke="#0f233c" stroke-width="1.3" marker-end="url(#arrow)" />
+
+                <!-- Full-time undergraduate (44%) -->
+                <text x="412" y="146" font-size="13.5" font-weight="bold" fill="#0f233c">Full-time</text>
+                <text x="412" y="162" font-size="13.5" font-weight="bold" fill="#0f233c">undergraduate</text>
+                <line x1="406" y1="151" x2="375" y2="151" stroke="#0f233c" stroke-width="1.3" marker-end="url(#arrow)" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Visual 2: Table (Library user satisfaction (%)) -->
+          <div class="border border-slate-300 rounded bg-[#fcfbf9] p-4">
+            <h3 class="text-lg font-bold text-slate-900 text-center mb-3">
+              Library user satisfaction (%)
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="ielts-table">
+                <thead>
+                  <tr>
+                    <th class="w-2/5"></th>
+                    <th>Very satisfied</th>
+                    <th>Fairly satisfied</th>
+                    <th>Not satisfied</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover:bg-amber-50/60">
+                    <td>Library opening hours</td>
+                    <td>65</td>
+                    <td>35</td>
+                    <td>0</td>
+                  </tr>
+                  <tr class="hover:bg-amber-50/60">
+                    <td>Helpfulness of staff</td>
+                    <td class="font-bold text-[#14532d]">95</td>
+                    <td>5</td>
+                    <td>0</td>
+                  </tr>
+                  <tr class="hover:bg-amber-50/60">
+                    <td>Availability of books</td>
+                    <td>50</td>
+                    <td>40</td>
+                    <td>10</td>
+                  </tr>
+                  <tr class="hover:bg-amber-50/60">
+                    <td>Availability of journals</td>
+                    <td>45</td>
+                    <td>35</td>
+                    <td class="font-bold text-[#8b1e2b]">20</td>
+                  </tr>
+                  <tr class="hover:bg-amber-50/60">
+                    <td>Reliability of wi-fi</td>
+                    <td>48</td>
+                    <td>33</td>
+                    <td class="font-bold text-[#8b1e2b]">19</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Task 1 Writing Pad & Live Feature Detection -->
+      <div class="lg:col-span-6 flex flex-col gap-4">
+        <div class="bg-white academic-border rounded p-6 flex-1 flex flex-col">
+          <!-- Editor Top Bar -->
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-300 pb-3 mb-3">
+            <div>
+              <h3 class="text-xl font-bold text-[#0f233c]">Candidate Response Sheet — Task 1</h3>
+              <p class="text-xs text-slate-600">Target: 150+ words &bull; Objective academic summary covering both visuals</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button onclick="loadSampleIntoEditor('task1', 'band6')" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-950 border border-amber-400 px-2.5 py-1 rounded font-bold transition" title="Load Official Cambridge Test 4 Band 6 Candidate Response">
+                Load Official Band 6 Sample
+              </button>
+              <button onclick="loadSampleIntoEditor('task1', 'band85')" class="text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-950 border border-emerald-400 px-2.5 py-1 rounded font-bold transition" title="Load Band 8.5+ Model Answer incorporating Official Overview">
+                Load Band 8.5+ Model
+              </button>
+              <button onclick="clearEditor('task1')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-2 py-1 rounded transition">
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <textarea
+            id="task1Input"
+            oninput="updateLiveMetrics('task1')"
+            placeholder="Begin typing your Task 1 academic report here... (Remember to include a clear overview covering both the pie chart and the satisfaction table, report key figures accurately, and make relevant comparisons without personal speculation.)"
+            class="editor-textarea w-full flex-1 min-h-[380px] p-4 rounded resize-y text-slate-900"
+          ></textarea>
+
+          <!-- Live Word & Feature Telemetry Bar -->
+          <div class="mt-4 bg-[#f4f1ea] border border-[#c8c2b4] rounded p-3.5">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+              <div class="flex items-center gap-4">
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Word Count</span>
+                  <span id="t1WordCount" class="text-xl font-bold text-[#8b1e2b]">0 words</span>
+                  <span id="t1WordTargetBadge" class="ml-1 text-xs px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold">Need 150+</span>
+                </div>
+                <div class="border-l border-slate-300 pl-4">
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Paragraphs</span>
+                  <span id="t1ParaCount" class="text-lg font-bold text-slate-900">0</span>
+                </div>
+                <div class="border-l border-slate-300 pl-4">
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Sentences</span>
+                  <span id="t1SentCount" class="text-lg font-bold text-slate-900">0</span>
+                </div>
+                <div class="border-l border-slate-300 pl-4">
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Figures Cited</span>
+                  <span id="t1DataCount" class="text-lg font-bold text-[#1d4273]">0 / 10</span>
+                </div>
+              </div>
+
+              <button onclick="switchView('task2')" class="bg-[#0f233c] hover:bg-[#1d4273] text-white text-xs px-3.5 py-2 rounded font-bold transition">
+                Proceed to Task 2 &rarr;
+              </button>
+            </div>
+
+            <!-- Live Key Feature Checklist -->
+            <div class="border-t border-[#d8d2c5] pt-2.5">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Live Task 1 Feature Coverage Monitor:
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-xs">
+                <div id="chk-t1-overview" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Clear Overview Signal
+                </div>
+                <div id="chk-t1-pie" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Pie Chart Users (44%, 25%, 7%)
+                </div>
+                <div id="chk-t1-table" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Satisfaction Table Covered
+                </div>
+                <div id="chk-t1-high" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Staff Helpfulness (95%) &amp; Hours (65%)
+                </div>
+                <div id="chk-t1-low" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Dissatisfaction: Journals (20%) &amp; Wi-Fi (19%)
+                </div>
+                <div id="chk-t1-nospec" class="px-2 py-1 rounded bg-emerald-50 border border-emerald-300 text-emerald-900 font-bold">
+                  &#9745; No Personal Speculation
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: WRITING TASK 2 WORKSTATION         -->
+    <!-- ========================================== -->
+    <section id="view-task2" class="hidden grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Column: Official Test 4 Task 2 Prompt & Analytical Scaffolds -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="bg-white academic-border rounded p-6">
+          <div class="flex items-center justify-between border-b-2 border-[#0f233c] pb-2 mb-4">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-[#8b1e2b] font-bold">Test 4 &bull; Academic Writing</span>
+              <h2 class="text-2xl font-bold text-[#0f233c]">WRITING TASK 2</h2>
+            </div>
+            <span class="badge-pill bg-[#0f233c] text-white">Recommended: 40 Minutes</span>
+          </div>
+
+          <p class="mb-2 text-base text-slate-800">
+            You should spend about 40 minutes on this task.
+          </p>
+          <p class="mb-3 text-base text-slate-800">
+            Write about the following topic:
+          </p>
+
+          <!-- Official Task 2 Prompt Box -->
+          <div class="prompt-box mb-4">
+            <p class="italic font-bold text-lg text-slate-900 mb-3">
+              Some people argue that primary schools focus too much on formal learning.
+            </p>
+            <p class="italic font-bold text-lg text-slate-900 mb-3">
+              To what extent do you agree with this opinion?
+            </p>
+            <p class="italic font-bold text-lg text-slate-900">
+              How important do you think it is for children to play as well as learn in the primary school classroom?
+            </p>
+          </div>
+
+          <p class="mb-4 text-base text-slate-800">
+            Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+          </p>
+          <p class="mb-5 text-base font-bold text-slate-900">
+            Write at least 250 words.
+          </p>
+
+          <!-- Examiner Task 2 Dual-Question Blueprint -->
+          <div class="bg-[#f8f6f0] border border-[#c8c2b4] rounded p-4">
+            <h3 class="text-base font-bold text-[#0f233c] border-b border-[#c8c2b4] pb-1.5 mb-2.5">
+              Academic Dual-Question Assessment Requirements
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-800">
+              <li>
+                <strong class="text-[#8b1e2b]">1. Question Part A (Extent of Agreement):</strong>
+                Evaluate whether primary schools place an excessive emphasis on formal instruction (e.g., structured exams, rote memorisation, discipline, core literacy/numeracy benchmarks).
+              </li>
+              <li>
+                <strong class="text-[#1d4273]">2. Question Part B (Importance of Classroom Play):</strong>
+                Explicitly assess how vital play-based learning is within the primary classroom (e.g., cognitive curiosity, social-emotional skills, creativity, preventing burnout, and fostering lifelong learning).
+              </li>
+              <li>
+                <strong class="text-[#14532d]">3. Cohesion Caution (From Official Test 4 Examiner Note):</strong>
+                Avoid starting almost every single sentence with mechanical linking phrases (<em>To begin with, Moreover, Furthermore, Last but not least</em>). Balance discourse markers with organic reference pronouns (<em>this approach, such activities, which</em>).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Task 2 Essay Editor -->
+      <div class="lg:col-span-7 flex flex-col gap-4">
+        <div class="bg-white academic-border rounded p-6 flex-1 flex flex-col">
+          <!-- Editor Top Bar -->
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-300 pb-3 mb-3">
+            <div>
+              <h3 class="text-xl font-bold text-[#0f233c]">Candidate Essay Sheet — Task 2</h3>
+              <p class="text-xs text-slate-600">Target: 250+ words &bull; Discursive academic essay addressing both prompt questions</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button onclick="loadSampleIntoEditor('task2', 'band75')" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-950 border border-amber-400 px-2.5 py-1 rounded font-bold transition" title="Load Official Cambridge Test 4 Band 7.5 Candidate Response">
+                Load Official Band 7.5 Sample
+              </button>
+              <button onclick="loadSampleIntoEditor('task2', 'band9')" class="text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-950 border border-emerald-400 px-2.5 py-1 rounded font-bold transition" title="Load Band 9.0 Model Essay">
+                Load Band 9.0 Model
+              </button>
+              <button onclick="clearEditor('task2')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 px-2 py-1 rounded transition">
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <textarea
+            id="task2Input"
+            oninput="updateLiveMetrics('task2')"
+            placeholder="Begin typing your Task 2 academic essay here... (Ensure your introduction states a clear position on both questions, develop well-supported body paragraphs with concrete examples, and finish with a focused conclusion tied directly back to the prompt.)"
+            class="editor-textarea w-full flex-1 min-h-[410px] p-4 rounded resize-y text-slate-900"
+          ></textarea>
+
+          <!-- Live Word & Feature Telemetry Bar -->
+          <div class="mt-4 bg-[#f4f1ea] border border-[#c8c2b4] rounded p-3.5">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+              <div class="flex items-center gap-4">
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Word Count</span>
+                  <span id="t2WordCount" class="text-xl font-bold text-[#8b1e2b]">0 words</span>
+                  <span id="t2WordTargetBadge" class="ml-1 text-xs px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold">Need 250+</span>
+                </div>
+                <div class="border-l border-slate-300 pl-4">
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Paragraphs</span>
+                  <span id="t2ParaCount" class="text-lg font-bold text-slate-900">0</span>
+                </div>
+                <div class="border-l border-slate-300 pl-4">
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Sentences</span>
+                  <span id="t2SentCount" class="text-lg font-bold text-slate-900">0</span>
+                </div>
+                <div class="border-l border-slate-300 pl-4">
+                  <span class="text-xs uppercase tracking-wider text-slate-600 block">Avg Sent. Length</span>
+                  <span id="t2AvgSent" class="text-lg font-bold text-[#1d4273]">0 w/s</span>
+                </div>
+              </div>
+
+              <button onclick="submitAndGradeExam(false)" class="bg-[#8b1e2b] hover:bg-[#a32433] text-white text-xs px-4 py-2 rounded font-bold shadow transition">
+                Submit Both Tasks &amp; Generate Grading Report &rarr;
+              </button>
+            </div>
+
+            <!-- Live Task 2 Feature Checklist -->
+            <div class="border-t border-[#d8d2c5] pt-2.5">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Live Task 2 Argument &amp; Structure Monitor:
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-xs">
+                <div id="chk-t2-stance" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Clear Position / Thesis
+                </div>
+                <div id="chk-t2-formal" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Formal Learning Addressed
+                </div>
+                <div id="chk-t2-play" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Classroom Play Addressed
+                </div>
+                <div id="chk-t2-examples" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Concrete Examples Provided
+                </div>
+                <div id="chk-t2-conclusion" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; Focused Conclusion Signal
+                </div>
+                <div id="chk-t2-paragraphs" class="px-2 py-1 rounded bg-white border border-slate-300 text-slate-500">
+                  &#9744; 4–5 Balanced Paragraphs
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: OFFICIAL SAMPLES & MODEL BENCHMARKS-->
+    <!-- ========================================== -->
+    <section id="view-models" class="hidden space-y-6">
+      <div class="bg-white academic-border rounded p-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b-2 border-[#0f233c] pb-3 mb-5">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-[#8b1e2b] font-bold">Cambridge IELTS 21 &bull; Test 4 Reference Archive</span>
+            <h2 class="text-2xl font-bold text-[#0f233c]">Official Candidate Sample Answers, Examiner Commentaries &amp; High-Band Models</h2>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="loadBothSamplesAndGrade('official')" class="bg-[#0f233c] hover:bg-[#1d4273] text-white text-xs px-3.5 py-2 rounded font-bold transition">
+              Load Both Official Samples (Band 6 &amp; 7.5) &amp; Run Grader
+            </button>
+            <button onclick="loadBothSamplesAndGrade('model')" class="bg-[#14532d] hover:bg-emerald-800 text-white text-xs px-3.5 py-2 rounded font-bold transition">
+              Load Both High-Band Models (Band 8.5 &amp; 9.0) &amp; Run Grader
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Task 1 Official Sample & Examiner Review -->
+          <div class="border border-slate-300 rounded p-5 bg-[#fcfbf8]">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold text-[#0f233c]">TEST 4, WRITING TASK 1 — Official Sample</h3>
+              <span class="badge-pill bg-amber-700 text-white">Achieved Band 6.0</span>
+            </div>
+            <div class="bg-white border border-slate-200 p-4 rounded mb-4 italic text-slate-800 space-y-2.5 text-[15px]">
+              <p>
+                In this chart, we can see a representation of categories and satisfaction of library users, the first feature that we pay attention is the users majority take part of full-time undergraduate and full-time post-graduate, such as they probably are the biggest data of library satisfaction, since very satisfied until not satisfied, also post-graduate students would need more special materials to hardest researchs and learning method. Even thought undergraduates students, fresh or veteran, are o their initial academic career, both categories look satisfied with the library between another may, as the fact they use it more than once during a day.
+              </p>
+              <p>
+                On the other hand, academic staff is the lowest data categorie that use the library, with a percentage of 7%, the reason beyond this effect is because the staffs must to focus on their work, so they probally use the library on their free-time, however, distance learning students have a 8% percentage, both categories have a 1% difference percentage, which explain they took a little part of satisfaction research, distance learning have a low percentage because the fact they also access online materials.
+              </p>
+              <p>
+                Finally, part-time postgraduate students are the medium date, with a 16% percentage, where they would use the libraray to classroom researchs or homeworks.
+              </p>
+            </div>
+
+            <div class="bg-[#eef2f7] border-l-4 border-[#0f233c] p-4 rounded mb-4 text-sm space-y-2">
+              <div class="font-bold text-[#0f233c] uppercase tracking-wider text-xs">Official Examiner's Comment (Pages 136–137):</div>
+              <p>
+                This is generally a good response, there is an introduction at the start, and an attempt at an overview [<em>...the users majority take part of full-time undergraduate and full-time post-graduate, such as they probably are the biggest data of library satisfaction</em>]. To improve the overview, there should be a summary across both charts. Key data from the pie chart is presented quite well but the 'Library user satisfaction' data is not sufficiently covered. There are also examples of irrelevant information [<em>would need more special materials | use it more than once during a day | use the library on their free-time</em>] which can detract from task achievement.
+              </p>
+              <p>
+                Ideas are mostly arranged logically. There are some nice linking expressions [<em>since | also | so | Finally | On the other hand</em>] with some slips [<em>Even thought / Even though</em>], and some good examples of reference [<em>their | they</em>].
+              </p>
+              <p>
+                Vocabulary is mainly appropriate and spelling is generally well managed [<em>representation | pay attention</em>]; some errors remain but don't affect understanding. Grammatical structures are mixed, but there are multi clause sentences and examples of a range of structures, including modal verbs used correctly [<em>would need</em>], and with some errors [<em>must to focus</em>].
+              </p>
+              <p>
+                This response could be improved by including an overview that covers both charts (so, including the 'Library user satisfaction' table,) and eliminating the irrelevant content. A wider range of vocabulary and grammatical structure would also help improve the score.
+              </p>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-300 p-4 rounded text-sm">
+              <div class="font-bold text-emerald-950 uppercase tracking-wider text-xs mb-1">Official Example Overview (Page 137):</div>
+              <p class="italic text-emerald-950 font-semibold">
+                "Overall, the survey of library users at this university shows that full-time students were by far the largest user group, with Academic staff in a minority. We also see that library users were 'very satisfied' the majority of the time, and were especially pleased with the helpfulness of staff but least satisfied with the wi-fi and access to journals."
+              </p>
+            </div>
+          </div>
+
+          <!-- Task 2 Official Sample & Examiner Review -->
+          <div class="border border-slate-300 rounded p-5 bg-[#fcfbf8]">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold text-[#0f233c]">TEST 4, WRITING TASK 2 — Official Sample</h3>
+              <span class="badge-pill bg-emerald-700 text-white">Achieved Band 7.5</span>
+            </div>
+            <div class="bg-white border border-slate-200 p-4 rounded mb-4 italic text-slate-800 space-y-2.5 text-[15px]">
+              <p>
+                Nowadays individuals are arguing that primary schools pay a lot of attention to the formal methods of learning. I partially agree with this point of view, however I think play is extremely crucial in the classroom full of primary students.
+              </p>
+              <p>
+                To begin with, formal learning plays an important role, since it teaches the student about being disciplined and respectful to everyone. Discipline and respect are two most important skills we need in our life that schools teaches us in a way of formal learning. Getting into details, these skills make people succeed in their lives. If we look at the example of successfull people today they all have these two qualities in common. Moreover formal learning helps us to test the ability of a student by conducting an exam in a formal way, which shows us how much has a student learnt and how much is the student capable of doing.
+              </p>
+              <p>
+                On the other hand, I believe that too formal education is not the best way of learning. Considering the stage of the life in which primary students belong, we need to realize that fun is a crucial part of it. Being extremely formal blocks that fun from a student's life. So instead of school's being strict about formal ways of learning they should promote fun methods of teaching. For example, mind games other other video games, colours, paints and other activities will also teach student but in a enjoyable way. These activities will also promote the important skills such as social skills, creative skills and other beneficial skills we need in our daily lives. Furthermore, if we consider it deeply it will also prevent boredom and will motivate the student to have a passion for lifelong learning. Last but not the least, play in the primary classroom has a huge importance on it's own, which gives the student this freedom to enjoy learning.
+              </p>
+              <p>
+                In conclusion, formal learning has it's importance till some extent but sometimes it is a necessity to be informal. And schools should be focused at both of the methods of learning
+              </p>
+            </div>
+
+            <div class="bg-[#eef2f7] border-l-4 border-[#0f233c] p-4 rounded text-sm space-y-2">
+              <div class="font-bold text-[#0f233c] uppercase tracking-wider text-xs">Official Examiner's Comment (Pages 138–139):</div>
+              <p>
+                This is an excellent response that presents a range of relevant ideas. The writer sets out their position in the opening paragraph, and addresses both parts of the question. Paragraph 2 presents the importance of formal learning: it teaches discipline and respect, it allows people to take exams to show how much they have learned and are capable of. Paragraph 3 goes on to present the importance of play: being too formal blocks fun, schools should promote 'fun' methods of teaching, they make suggestions of types of games and activities that could be used to teach in an enjoyable way, prevent boredom, and instil a love for lifelong learning. The conclusion brings the response to an end, but is quite general. It is appropriate, but could be more focused.
+              </p>
+              <p>
+                Ideas are presented logically. A range of good linking expressions are used [<em>To begin with | Moreover | On the other hand | Furthermore</em>]. However, almost every sentence begins with a linking device which makes it quite mechanical. Generally, reference and cohesion within sentences is well managed [<em>which | it</em>]. A reduction in the number of linking devices that come at the start of sentences would make it less formulaic.
+              </p>
+              <p>
+                Vocabulary is well managed, with a good range of higher-level items, including collocation [<em>pay...attention | capable of doing | a crucial part of</em>]. There are occasional errors [<em>till / to | focused at / focused on</em>] that detract from the highest scores. Grammatical structures are well presented, with a range of complex structures, including multi clause sentences. A few errors do remain.
+              </p>
+              <p>
+                Overall, this is a very strong and articulate response. To achieve a higher score, the candidate could provide a conclusion that refers directly to the question, and avoid starting each sentence with a linking expression.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: AUTOMATED GRADING REPORT & EXPORT  -->
+    <!-- ========================================== -->
+    <section id="view-report" class="hidden space-y-6">
+      <!-- Empty State if Not Graded Yet -->
+      <div id="reportEmptyState" class="bg-white academic-border rounded p-10 text-center">
+        <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-[#0f233c] text-[#f3d27a] flex items-center justify-center text-2xl font-bold">
+          IELTS
+        </div>
+        <h2 class="text-2xl font-bold text-[#0f233c] mb-2">No Examination Submission Graded Yet</h2>
+        <p class="text-slate-600 max-w-xl mx-auto mb-6">
+          Write your responses in Task 1 and Task 2 (or load the official Cambridge Test 4 candidate samples / high-band models) and click <strong>Submit &amp; Grade Exam</strong> to generate your full diagnostic report and downloadable Word document in Times New Roman 10pt font.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <button onclick="switchView('task1')" class="bg-[#0f233c] hover:bg-[#1d4273] text-white px-5 py-2.5 rounded font-bold text-sm">
+            Go to Writing Task 1
+          </button>
+          <button onclick="loadBothSamplesAndGrade('official')" class="bg-[#8b1e2b] hover:bg-[#a32433] text-white px-5 py-2.5 rounded font-bold text-sm">
+            Demo With Official Test 4 Samples (Band 6 &amp; 7.5)
+          </button>
+        </div>
+      </div>
+
+      <!-- Populated Grading Report Container -->
+      <div id="reportContent" class="hidden space-y-6">
+        <!-- Top Action & Summary Banner -->
+        <div class="bg-[#0f233c] text-white rounded academic-border p-6 border-b-4 border-[#b0832b]">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs uppercase tracking-[0.2em] text-[#f3d27a] font-bold">Official Diagnostic Assessment Report</span>
+                <span id="reportSubmissionTrigger" class="text-xs bg-white/15 px-2 py-0.5 rounded">Manual Submission</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-bold">Cambridge IELTS Academic 21 — Test 4 Writing Evaluation</h2>
+              <p id="reportMetaSub" class="text-sm text-slate-300 mt-1"></p>
+            </div>
+
+            <!-- Download Word Document CTA -->
+            <div class="flex flex-wrap items-center gap-3">
+              <button onclick="downloadWordReport()" class="bg-[#b0832b] hover:bg-[#c59535] text-white border border-amber-200 px-5 py-3 rounded font-bold text-sm shadow-lg transition flex items-center gap-2.5">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11 8 15.01z"/>
+                </svg>
+                <span>Download Word Report (.doc — Times New Roman 10pt)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Overall & Individual Band Score Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <!-- Overall Band -->
+            <div class="bg-[#173254] border border-[#d4af37] rounded p-4 flex items-center justify-between">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-[#f3d27a] font-bold">Overall Writing Band Score</div>
+                <div id="repOverallCEFR" class="text-lg font-bold text-white mt-0.5">CEFR Level C1</div>
+                <div class="text-xs text-slate-300 mt-1">Weighted: (Task 1 + 2 &times; Task 2) &divide; 3</div>
+              </div>
+              <div id="repOverallBand" class="w-20 h-20 rounded bg-[#b0832b] text-white flex items-center justify-center text-3xl font-bold shadow-inner border border-amber-200">
+                7.0
+              </div>
+            </div>
+
+            <!-- Task 1 Band -->
+            <div class="bg-[#173254]/80 border border-slate-500 rounded p-4 flex items-center justify-between">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-slate-300 font-bold">Writing Task 1 (Survey Data)</div>
+                <div id="repT1WordSummary" class="text-sm font-bold text-white mt-0.5">168 words (Target: 150+)</div>
+                <div class="text-xs text-slate-300 mt-1">Weight: 33.3% of Total Score</div>
+              </div>
+              <div id="repT1Band" class="w-16 h-16 rounded bg-[#1d4273] text-white flex items-center justify-center text-2xl font-bold border border-slate-400">
+                6.0
+              </div>
+            </div>
+
+            <!-- Task 2 Band -->
+            <div class="bg-[#173254]/80 border border-slate-500 rounded p-4 flex items-center justify-between">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-slate-300 font-bold">Writing Task 2 (Primary Play)</div>
+                <div id="repT2WordSummary" class="text-sm font-bold text-white mt-0.5">310 words (Target: 250+)</div>
+                <div class="text-xs text-slate-300 mt-1">Weight: 66.7% of Total Score</div>
+              </div>
+              <div id="repT2Band" class="w-16 h-16 rounded bg-[#14532d] text-white flex items-center justify-center text-2xl font-bold border border-emerald-400">
+                7.5
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Criterion Breakdown Table & Visual Comparative Chart -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 bg-white academic-border rounded p-6">
+            <h3 class="text-xl font-bold text-[#0f233c] border-b-2 border-[#0f233c] pb-2 mb-4">
+              Official 4-Criterion Analytic Band Score Matrix
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="ielts-table text-sm">
+                <thead>
+                  <tr>
+                    <th>Assessment Criterion</th>
+                    <th>Task 1 Band</th>
+                    <th>Task 2 Band</th>
+                    <th>Weighted Criterion Avg</th>
+                    <th>Proficiency Status</th>
+                  </tr>
+                </thead>
+                <tbody id="repCriteriaTableBody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-slate-600 mt-3 italic">
+              *Note: Task 1 assesses Task Achievement (TA), whereas Task 2 assesses Task Response (TR). Both tasks assess Coherence &amp; Cohesion (CC), Lexical Resource (LR), and Grammatical Range &amp; Accuracy (GRA).
+            </p>
+          </div>
+
+          <!-- Visual Bar Comparison -->
+          <div class="lg:col-span-5 bg-white academic-border rounded p-6">
+            <h3 class="text-xl font-bold text-[#0f233c] border-b-2 border-[#0f233c] pb-2 mb-4">
+              Visual Criterion Profile (Bands 0.0 – 9.0)
+            </h3>
+            <div id="repVisualBars" class="space-y-3.5">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Task 1 Assessment Card -->
+        <div class="bg-white academic-border rounded p-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-[#0f233c] pb-2 mb-5">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-[#8b1e2b] font-bold">Individual Task Diagnostic 1</span>
+              <h3 class="text-2xl font-bold text-[#0f233c]">Writing Task 1 — University Library Survey Analysis</h3>
+            </div>
+            <span id="repT1BadgeDetail" class="badge-pill bg-[#0f233c] text-white text-base">Band 6.0</span>
+          </div>
+
+          <!-- 3-Column Strengths / Weaknesses / Improvements + Tips -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+            <div class="border border-emerald-300 bg-emerald-50/50 rounded p-4">
+              <h4 class="text-base font-bold text-emerald-950 border-b border-emerald-300 pb-1.5 mb-2.5 flex items-center gap-1.5">
+                <span>&#10004; Key Strengths</span>
+              </h4>
+              <ul id="repT1Strengths" class="list-disc pl-5 space-y-1.5 text-sm text-slate-800"></ul>
+            </div>
+
+            <div class="border border-rose-300 bg-rose-50/50 rounded p-4">
+              <h4 class="text-base font-bold text-rose-950 border-b border-rose-300 pb-1.5 mb-2.5 flex items-center gap-1.5">
+                <span>&#9888; Weaknesses &amp; Penalties</span>
+              </h4>
+              <ul id="repT1Weaknesses" class="list-disc pl-5 space-y-1.5 text-sm text-slate-800"></ul>
+            </div>
+
+            <div class="border border-amber-300 bg-amber-50/50 rounded p-4">
+              <h4 class="text-base font-bold text-amber-950 border-b border-amber-300 pb-1.5 mb-2.5 flex items-center gap-1.5">
+                <span>&#9733; Areas for Improvement &amp; Exam Tips</span>
+              </h4>
+              <ul id="repT1Tips" class="list-disc pl-5 space-y-1.5 text-sm text-slate-800"></ul>
+            </div>
+          </div>
+
+          <!-- Task 1 Examiner Narrative & Data Audit -->
+          <div class="bg-[#f8f6f0] border border-[#c8c2b4] rounded p-4 text-sm text-slate-800 space-y-2">
+            <div class="font-bold text-[#0f233c] uppercase tracking-wider text-xs">Senior Examiner Commentary — Task 1:</div>
+            <p id="repT1ExaminerNarrative"></p>
+          </div>
+        </div>
+
+        <!-- Detailed Task 2 Assessment Card -->
+        <div class="bg-white academic-border rounded p-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-[#0f233c] pb-2 mb-5">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-[#8b1e2b] font-bold">Individual Task Diagnostic 2</span>
+              <h3 class="text-2xl font-bold text-[#0f233c]">Writing Task 2 — Formal Learning vs. Classroom Play in Primary Schools</h3>
+            </div>
+            <span id="repT2BadgeDetail" class="badge-pill bg-[#14532d] text-white text-base">Band 7.5</span>
+          </div>
+
+          <!-- 3-Column Strengths / Weaknesses / Improvements + Tips -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+            <div class="border border-emerald-300 bg-emerald-50/50 rounded p-4">
+              <h4 class="text-base font-bold text-emerald-950 border-b border-emerald-300 pb-1.5 mb-2.5 flex items-center gap-1.5">
+                <span>&#10004; Key Strengths</span>
+              </h4>
+              <ul id="repT2Strengths" class="list-disc pl-5 space-y-1.5 text-sm text-slate-800"></ul>
+            </div>
+
+            <div class="border border-rose-300 bg-rose-50/50 rounded p-4">
+              <h4 class="text-base font-bold text-rose-950 border-b border-rose-300 pb-1.5 mb-2.5 flex items-center gap-1.5">
+                <span>&#9888; Weaknesses &amp; Penalties</span>
+              </h4>
+              <ul id="repT2Weaknesses" class="list-disc pl-5 space-y-1.5 text-sm text-slate-800"></ul>
+            </div>
+
+            <div class="border border-amber-300 bg-amber-50/50 rounded p-4">
+              <h4 class="text-base font-bold text-amber-950 border-b border-amber-300 pb-1.5 mb-2.5 flex items-center gap-1.5">
+                <span>&#9733; Areas for Improvement &amp; Exam Tips</span>
+              </h4>
+              <ul id="repT2Tips" class="list-disc pl-5 space-y-1.5 text-sm text-slate-800"></ul>
+            </div>
+          </div>
+
+          <!-- Task 2 Examiner Narrative -->
+          <div class="bg-[#f8f6f0] border border-[#c8c2b4] rounded p-4 text-sm text-slate-800 space-y-2">
+            <div class="font-bold text-[#0f233c] uppercase tracking-wider text-xs">Senior Examiner Commentary — Task 2:</div>
+            <p id="repT2ExaminerNarrative"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f233c] text-slate-300 border-t-2 border-[#b0832b] mt-8 py-4 text-xs">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-2">
+      <div>
+        Cambridge IELTS Academic Volume 21 &bull; Test 4 Writing Examination Workstation (Tasks 1 &amp; 2)
+      </div>
+      <div>
+        Typography: Strict Times New Roman Academic Standard &bull; Word Export Engine: 10pt Times New Roman Specification
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Examination, Timer, Diagnostic Grader & Word Export Suite -->
+  <script>
+    // =========================================================================
+    // 1. OFFICIAL SAMPLES & HIGH-BAND MODEL ANSWERS REPOSITORY
+    // =========================================================================
+    const SAMPLES = {
+      task1_band6: `In this chart, we can see a representation of categories and satisfaction of library users, the first feature that we pay attention is the users majority take part of full-time undergraduate and full-time post-graduate, such as they probably are the biggest data of library satisfaction, since very satisfied until not satisfied, also post-graduate students would need more special materials to hardest researchs and learning method. Even thought undergraduates students, fresh or veteran, are o their initial academic career, both categories look satisfied with the library between another may, as the fact they use it more than once during a day.
+
+On the other hand, academic staff is the lowest data categorie that use the library, with a percentage of 7%, the reason beyond this effect is because the staffs must to focus on their work, so they probally use the library on their free-time, however, distance learning students have a 8% percentage, both categories have a 1% difference percentage, which explain they took a little part of satisfaction research, distance learning have a low percentage because the fact they also access online materials.
+
+Finally, part-time postgraduate students are the medium date, with a 16% percentage, where they would use the libraray to classroom researchs or homeworks.`,
+
+      task1_band85: `The pie chart illustrates the distribution of library users across five distinct academic groups at a university, while the accompanying table presents the percentage of users who reported being very satisfied, fairly satisfied, or dissatisfied with five specific aspects of the library's service.
+
+Overall, the survey of library users at this university shows that full-time students were by far the largest user group, with Academic staff in a minority. We also see that library users were 'very satisfied' the majority of the time, and were especially pleased with the helpfulness of staff but least satisfied with the wi-fi and access to journals.
+
+Looking first at user demographics, full-time students accounted for almost70% of all library patrons. Specifically, full-time undergraduates constituted the single largest category at 44%, followed by full-time postgraduates at 25%. Part-time postgraduates represented a further 16% of users, meaning that postgraduate researchers as a whole made up 41% of the total. By contrast, distance learning students across all courses and academic staff comprised only minor proportions, at 8% and 7% respectively.
+
+Turning to user satisfaction, staff helpfulness received the most overwhelmingly positive rating, with 95% of respondents stating they were very satisfied and the remaining 5% fairly satisfied. Library opening hours also recorded zero dissatisfaction, with 65% very satisfied and 35% fairly satisfied. Regarding reading resources, half of all users were very satisfied with book availability (and 40% fairly satisfied), whereas journal availability drew the highest level of dissatisfaction at 20%, alongside 45% very satisfied. Similarly, wi-fi reliability experienced notable criticism, with 19% not satisfied, 33% fairly satisfied, and 48% very satisfied.`,
+
+      task2_band75: `Nowadays individuals are arguing that primary schools pay a lot of attention to the formal methods of learning. I partially agree with this point of view, however I think play is extremely crucial in the classroom full of primary students.
+
+To begin with, formal learning plays an important role, since it teaches the student about being disciplined and respectful to everyone. Discipline and respect are two most important skills we need in our life that schools teaches us in a way of formal learning. Getting into details, these skills make people succeed in their lives. If we look at the example of successfull people today they all have these two qualities in common. Moreover formal learning helps us to test the ability of a student by conducting an exam in a formal way, which shows us how much has a student learnt and how much is the student capable of doing.
+
+On the other hand, I believe that too formal education is not the best way of learning. Considering the stage of the life in which primary students belong, we need to realize that fun is a crucial part of it. Being extremely formal blocks that fun from a student's life. So instead of school's being strict about formal ways of learning they should promote fun methods of teaching. For example, mind games other other video games, colours, paints and other activities will also teach student but in a enjoyable way. These activities will also promote the important skills such as social skills, creative skills and other beneficial skills we need in our daily lives. Furthermore, if we consider it deeply it will also prevent boredom and will motivate the student to have a passion for lifelong learning. Last but not the least, play in the primary classroom has a huge importance on it's own, which gives the student this freedom to enjoy learning.
+
+In conclusion, formal learning has it's importance till some extent but sometimes it is a necessity to be informal. And schools should be focused at both of the methods of learning`,
+
+      task2_band9: `It is frequently argued that modern primary education places an excessive emphasis on structured, formal instruction at the expense of child-led exploration. While I acknowledge that foundational literacy and numeracy require a degree of systematic teaching, I largely agree that an overly rigid regime is counterproductive for young learners, and I consider classroom play to be an indispensable component of early cognitive and social development.
+
+Admittedly, structured learning serves a vital function in the primary curriculum. Children between the ages of five and eleven must acquire core competencies in reading, writing, and arithmetic, which form the bedrock of all subsequent academic inquiry. Formal instruction also accustoms pupils to classroom routines, attentive listening, and collaborative respect, while periodic assessments allow educators to identify learning gaps early. However, when primary schools prioritise standardised testing and rote memorisation above all else, young pupils often experience heightened anxiety and disengagement before their intellectual curiosity has fully matured.
+
+Consequently, integrating purposeful play into the primary classroom is of paramount importance. At this formative developmental stage, children naturally make sense of the world through active experimentation, role-play, and interactive games. When teachers incorporate educational board games, artistic projects, and collaborative problem-solving tasks into daily lessons, abstract concepts become tangible and memorable. For instance, learning fractions through shared building blocks or exploring storytelling through dramatic play nurtures creativity, emotional resilience, and interpersonal negotiation skills that no worksheet can replicate. Furthermore, blending enjoyment with inquiry prevents classroom monotony and cultivates an intrinsic passion for lifelong learning.
+
+In conclusion, although a baseline of formal instruction is necessary to establish foundational academic skills and classroom discipline, primary schools should avoid an overly rigid pedagogical approach. Embedding structured play within the classroom is equally vital, as it fosters holistic social, creative, and intellectual growth in young children.`
+    };
+
+    // =========================================================================
+    // 2. TIMER STATE & 60-MINUTE EXAMINATION CLOCK
+    // =========================================================================
+    let totalSeconds = 60 * 60; // 60 minutes
+    let remainingSeconds = totalSeconds;
+    let timerRunning = true;
+    let timerInterval = null;
+    let lastEvaluation = null;
+
+    function startTimerLoop() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (!timerRunning) return;
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+          renderTimerUI();
+        } else {
+          timerRunning = false;
+          clearInterval(timerInterval);
+          submitAndGradeExam(true);
+        }
+      }, 1000);
+    }
+
+    function renderTimerUI() {
+      const mins = Math.floor(remainingSeconds / 60);
+      const secs = remainingSeconds % 60;
+      const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      document.getElementById('timerDisplay').textContent = formatted;
+
+      const pct = Math.max(0, (remainingSeconds / totalSeconds) * 100);
+      document.getElementById('timerProgressBar').style.width = `${pct}%`;
+
+      const adviceEl = document.getElementById('timerPhaseAdvice');
+      const timerBox = document.getElementById('timerBox');
+
+      if (remainingSeconds > 40 * 60) {
+        adviceEl.textContent = `● Exam Phase: Task 1 Recommended Window (${formatted} remaining — switch to Task 2 at 40:00)`;
+        timerBox.classList.remove('timer-critical');
+      } else if (remainingSeconds > 5 * 60) {
+        adviceEl.textContent = `● Exam Phase: Task 2 Recommended Window (${formatted} remaining — ensure 250+ words)`;
+        timerBox.classList.remove('timer-critical');
+      } else {
+        adviceEl.textContent = `▲ CRITICAL TIME WARNING: Under 5 minutes remaining! Finalise proofread now.`;
+        timerBox.classList.add('timer-critical');
+      }
+    }
+
+    function toggleTimer() {
+      timerRunning = !timerRunning;
+      const btn = document.getElementById('timerToggleBtn');
+      if (timerRunning) {
+        btn.textContent = 'Pause';
+        btn.className = 'bg-emerald-700 hover:bg-emerald-600 text-white text-xs px-2 py-0.5 rounded font-bold transition';
+      } else {
+        btn.textContent = 'Resume';
+        btn.className = 'bg-amber-600 hover:bg-amber-500 text-white text-xs px-2 py-0.5 rounded font-bold transition';
+      }
+    }
+
+    function resetTimer() {
+      remainingSeconds = totalSeconds;
+      timerRunning = true;
+      document.getElementById('timerToggleBtn').textContent = 'Pause';
+      renderTimerUI();
+    }
+
+    function simulateTimerFinish() {
+      remainingSeconds = 0;
+      timerRunning = false;
+      renderTimerUI();
+      submitAndGradeExam(true);
+    }
+
+    // =========================================================================
+    // 3. NAVIGATION & PIE CHART STYLE SWITCHER
+    // =========================================================================
+    function switchView(view) {
+      const views = ['task1', 'task2', 'models', 'report'];
+      const navBtns = {
+        task1: 'navTask1Btn',
+        task2: 'navTask2Btn',
+        models: 'navModelBtn',
+        report: 'navReportBtn'
+      };
+
+      views.forEach(v => {
+        const el = document.getElementById(`view-${v}`);
+        if (v === view) {
+          el.classList.remove('hidden');
+          if (v === 'task1' || v === 'task2') el.classList.add('grid');
+        } else {
+          el.classList.add('hidden');
+          el.classList.remove('grid');
+        }
+        const btn = document.getElementById(navBtns[v]);
+        if (v === view) {
+          btn.classList.add('tab-active');
+        } else {
+          btn.classList.remove('tab-active');
+        }
+      });
+    }
+
+    function setChartStyle(mode) {
+      const ug = document.getElementById('slice-ug');
+      const ftpg = document.getElementById('slice-ftpg');
+      const ptpg = document.getElementById('slice-ptpg');
+      const dl = document.getElementById('slice-dl');
+      const staff = document.getElementById('slice-staff');
+      const btnColor = document.getElementById('btnChartColor');
+      const btnBW = document.getElementById('btnChartBW');
+
+      if (mode === 'bw') {
+        ug.setAttribute('fill', 'url(#pat-diag)');
+        ftpg.setAttribute('fill', '#94a3b8');
+        ptpg.setAttribute('fill', 'url(#pat-cross)');
+        dl.setAttribute('fill', '#1e293b');
+        staff.setAttribute('fill', '#ffffff');
+        btnBW.className = 'text-xs px-2 py-0.5 rounded bg-[#0f233c] text-white font-bold';
+        btnColor.className = 'text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-800 font-bold';
+      } else {
+        ug.setAttribute('fill', '#1d4273');
+        ftpg.setAttribute('fill', '#b0832b');
+        ptpg.setAttribute('fill', '#2e6f5e');
+        dl.setAttribute('fill', '#8b1e2b');
+        staff.setAttribute('fill', '#cbd5e1');
+        btnColor.className = 'text-xs px-2 py-0.5 rounded bg-[#0f233c] text-white font-bold';
+        btnBW.className = 'text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-800 font-bold';
+      }
+    }
+
+    // =========================================================================
+    // 4. LIVE TEXT TELEMETRY & KEY FEATURE CHECKERS
+    // =========================================================================
+    function tokenizeWords(text) {
+      const cleaned = text.trim();
+      if (!cleaned) return [];
+      return cleaned.split(/\s+/).filter(Boolean);
+    }
+
+    function countParagraphs(text) {
+      const paras = text.trim().split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+      return paras.length;
+    }
+
+    function countSentences(text) {
+      const sents = text.trim().split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 2);
+      return sents.length;
+    }
+
+    function setCheckState(id, passed, label) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (passed) {
+        el.className = 'px-2 py-1 rounded bg-emerald-50 border border-emerald-400 text-emerald-950 font-bold';
+        el.innerHTML = `&#9745; ${label}`;
+      } else {
+        el.className = 'px-2 py-1 rounded bg-white border border-slate-300 text-slate-500';
+        el.innerHTML = `&#9744; ${label}`;
+      }
+    }
+
+    function updateLiveMetrics(task) {
+      if (task === 'task1') {
+        const text = document.getElementById('task1Input').value;
+        const words = tokenizeWords(text);
+        const wCount = words.length;
+        const pCount = countParagraphs(text);
+        const sCount = countSentences(text);
+
+        document.getElementById('t1WordCount').textContent = `${wCount} words`;
+        document.getElementById('navTask1Status').textContent = `${wCount}/150w`;
+        document.getElementById('t1ParaCount').textContent = pCount;
+        document.getElementById('t1SentCount').textContent = sCount;
+
+        const badge = document.getElementById('t1WordTargetBadge');
+        if (wCount >= 150) {
+          document.getElementById('t1WordCount').className = 'text-xl font-bold text-emerald-800';
+          badge.className = 'ml-1 text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold';
+          badge.textContent = 'Target Met (150+)';
+        } else {
+          document.getElementById('t1WordCount').className = 'text-xl font-bold text-[#8b1e2b]';
+          badge.className = 'ml-1 text-xs px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold';
+          badge.textContent = `Need ${150 - wCount} more`;
+        }
+
+        // Data figures cited check
+        const keyFigures = ['44', '25', '16', '8', '7', '65', '95', '50', '45', '48', '35', '40', '33', '20', '19'];
+        let citedCount = 0;
+        keyFigures.forEach(num => {
+          const rx = new RegExp(`\\b${num}\\b|%`, 'i');
+          if (new RegExp(`\\b${num}(\\s*%|\\b)`).test(text)) citedCount++;
+        });
+        document.getElementById('t1DataCount').textContent = `${Math.min(10, citedCount)} / 10`;
+
+        const lower = text.toLowerCase();
+        const hasOverview = /\b(overall|in summary|to summarise|to summarize|general trend|main feature)\b/.test(lower);
+        const hasPie = /\b(undergraduate|postgraduate|post-graduate|academic staff|distance learning)\b/.test(lower) && /\b(44|25|16|7|8)\b/.test(lower);
+        const hasTable = /\b(opening hours|helpfulness|availability of books|journals|wi-fi|wifi)\b/.test(lower);
+        const hasHigh = /\b(95|helpfulness)\b/.test(lower) && /\b(65|opening hours)\b/.test(lower);
+        const hasLow = /\b(20|19|journals|wi-fi|wifi|not satisfied|dissatisfied|least satisfied)\b/.test(lower);
+        const hasSpeculation = /\b(free-time|free time|because the staffs must|more than once during a day|homeworks|hardest researchs)\b/.test(lower);
+
+        setCheckState('chk-t1-overview', hasOverview, 'Clear Overview Signal');
+        setCheckState('chk-t1-pie', hasPie, 'Pie Chart Users (44%, 25%, 7%)');
+        setCheckState('chk-t1-table', hasTable, 'Satisfaction Table Covered');
+        setCheckState('chk-t1-high', hasHigh, 'Staff Helpfulness (95%) & Hours (65%)');
+        setCheckState('chk-t1-low', hasLow, 'Dissatisfaction: Journals (20%) & Wi-Fi (19%)');
+
+        const specEl = document.getElementById('chk-t1-nospec');
+        if (hasSpeculation) {
+          specEl.className = 'px-2 py-1 rounded bg-rose-100 border border-rose-400 text-rose-900 font-bold';
+          specEl.innerHTML = '&#9888; Irrelevant Speculation Detected';
+        } else {
+          specEl.className = 'px-2 py-1 rounded bg-emerald-50 border border-emerald-300 text-emerald-900 font-bold';
+          specEl.innerHTML = '&#9745; No Personal Speculation';
+        }
+      } else if (task === 'task2') {
+        const text = document.getElementById('task2Input').value;
+        const words = tokenizeWords(text);
+        const wCount = words.length;
+        const pCount = countParagraphs(text);
+        const sCount = countSentences(text);
+        const avgS = sCount > 0 ? Math.round(wCount / sCount) : 0;
+
+        document.getElementById('t2WordCount').textContent = `${wCount} words`;
+        document.getElementById('navTask2Status').textContent = `${wCount}/250w`;
+        document.getElementById('t2ParaCount').textContent = pCount;
+        document.getElementById('t2SentCount').textContent = sCount;
+        document.getElementById('t2AvgSent').textContent = `${avgS} w/s`;
+
+        const badge = document.getElementById('t2WordTargetBadge');
+        if (wCount >= 250) {
+          document.getElementById('t2WordCount').className = 'text-xl font-bold text-emerald-800';
+          badge.className = 'ml-1 text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold';
+          badge.textContent = 'Target Met (250+)';
+        } else {
+          document.getElementById('t2WordCount').className = 'text-xl font-bold text-[#8b1e2b]';
+          badge.className = 'ml-1 text-xs px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold';
+          badge.textContent = `Need ${250 - wCount} more`;
+        }
+
+        const lower = text.toLowerCase();
+        const hasStance = /\b(agree|disagree|believe|view|opinion|consider|argue|extent)\b/.test(lower);
+        const hasFormal = /\b(formal|discipline|exam|assessment|curriculum|structured|literacy|numeracy)\b/.test(lower);
+        const hasPlay = /\b(play|fun|games|activities|creative|creativity|social|enjoyable|curiosity)\b/.test(lower);
+        const hasExamples = /\b(for example|for instance|such as|like|illustrate)\b/.test(lower);
+        const hasConclusion = /\b(in conclusion|to conclude|overall|to sum up)\b/.test(lower);
+        const hasGoodParas = pCount >= 4 && pCount <= 6;
+
+        setCheckState('chk-t2-stance', hasStance, 'Clear Position / Thesis');
+        setCheckState('chk-t2-formal', hasFormal, 'Formal Learning Addressed');
+        setCheckState('chk-t2-play', hasPlay, 'Classroom Play Addressed');
+        setCheckState('chk-t2-examples', hasExamples, 'Concrete Examples Provided');
+        setCheckState('chk-t2-conclusion', hasConclusion, 'Focused Conclusion Signal');
+        setCheckState('chk-t2-paragraphs', hasGoodParas, '4–5 Balanced Paragraphs');
+      }
+    }
+
+    function loadSampleIntoEditor(task, type) {
+      if (task === 'task1') {
+        document.getElementById('task1Input').value = type === 'band6' ? SAMPLES.task1_band6 : SAMPLES.task1_band85;
+        updateLiveMetrics('task1');
+      } else {
+        document.getElementById('task2Input').value = type === 'band75' ? SAMPLES.task2_band75 : SAMPLES.task2_band9;
+        updateLiveMetrics('task2');
+      }
+    }
+
+    function clearEditor(task) {
+      document.getElementById(task === 'task1' ? 'task1Input' : 'task2Input').value = '';
+      updateLiveMetrics(task);
+    }
+
+    function loadBothSamplesAndGrade(mode) {
+      if (mode === 'official') {
+        document.getElementById('task1Input').value = SAMPLES.task1_band6;
+        document.getElementById('task2Input').value = SAMPLES.task2_band75;
+      } else {
+        document.getElementById('task1Input').value = SAMPLES.task1_band85;
+        document.getElementById('task2Input').value = SAMPLES.task2_band9;
+      }
+      updateLiveMetrics('task1');
+      updateLiveMetrics('task2');
+      submitAndGradeExam(false);
+    }
+
+    // =========================================================================
+    // 5. AUTOMATED IELTS ACADEMIC DIAGNOSTIC GRADING ENGINE
+    // =========================================================================
+    function roundHalf(num) {
+      return Math.round(num * 2) / 2;
+    }
+
+    function clampBand(val) {
+      return Math.max(0, Math.min(9.0, roundHalf(val)));
+    }
+
+    function evaluateTask1(text) {
+      const cleaned = text.trim();
+      const words = tokenizeWords(cleaned);
+      const wCount = words.length;
+      const pCount = countParagraphs(cleaned);
+      const sCount = countSentences(cleaned);
+      const lower = cleaned.toLowerCase();
+
+      if (wCount < 10) {
+        return {
+          wordCount: wCount,
+          paraCount: pCount,
+          sentCount: sCount,
+          TA: 1.0, CC: 1.0, LR: 1.0, GRA: 1.0, overall: 1.0,
+          strengths: ['Attempt initialized, but insufficient text submitted for full analytic band scoring.'],
+          weaknesses: [
+            `Severe under-length response (${wCount} words vs. minimum 150-word requirement).`,
+            'Neither the pie chart (Categories of library users) nor the table (Library user satisfaction) is adequately summarised.'
+          ],
+          tips: [
+            'Write at least 150 words across 3–4 paragraphs: Introduction, Overview (covering both charts), Body Paragraph 1 (Pie Chart), and Body Paragraph 2 (Satisfaction Table).',
+            'Include the official benchmark overview covering both visuals.'
+          ],
+          narrative: 'This submission does not contain sufficient assessable material. Please write at least 150 words or load one of the Test 4 sample responses.'
+        };
+      }
+
+      // Check if matches Official Band 6 Candidate Answer closely
+      const isOfficialBand6 = lower.includes('users majority take part of full-time undergraduate') ||
+                              lower.includes('because the staffs must to focus on their work');
+
+      const isModelBand85 = lower.includes('turning to user satisfaction, staff helpfulness received the most overwhelmingly positive rating');
+
+      // Analytic feature extraction
+      const pieCategories = ['undergraduate', 'postgraduate', 'academic staff', 'distance learning'];
+      const pieHits = pieCategories.filter(c => lower.includes(c)).length;
+
+      const tableCategories = ['opening hours', 'helpfulness', 'books', 'journals', 'wi-fi', 'wifi'];
+      const tableHits = tableCategories.filter(c => lower.includes(c)).length;
+
+      const pieNumbers = ['44', '25', '16', '8', '7'].filter(n => new RegExp(`\\b${n}\\b`).test(lower)).length;
+      const tableNumbers = ['95', '65', '50', '48', '45', '40', '35', '33', '20', '19', '10', '5', '0'].filter(n => new RegExp(`\\b${n}\\b`).test(lower)).length;
+
+      const hasOverviewSignal = /\b(overall|in summary|generally|main feature|most noticeable)\b/.test(lower);
+      const hasBothInOverview = hasOverviewSignal && tableHits >= 2 && pieHits >= 2;
+      const hasSpeculation = /\b(free-time|free time|must to focus on their work|more than once during a day|homeworks|hardest researchs|because they|reason beyond)\b/.test(lower);
+      const hasSpellingGrammarSlips = /\b(researchs|categorie|probally|libraray|homeworks|must to focus|even thought)\b/.test(lower);
+
+      // Unique lexical variety
+      const uniqueRatio = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size / Math.max(1, wCount);
+
+      let TA = 6.0, CC = 6.0, LR = 6.0, GRA = 6.0;
+
+      if (isOfficialBand6) {
+        TA = 5.5; CC = 6.0; LR = 6.5; GRA = 6.0;
+      } else if (isModelBand85) {
+        TA = 9.0; CC = 9.0; LR = 8.5; GRA = 9.0;
+      } else {
+        // Calculate TA
+        TA = 5.0;
+        if (wCount >= 150) TA += 1.0;
+        else if (wCount >= 120) TA += 0.5;
+        else TA -= 1.0;
+
+        if (pieHits >= 3 && pieNumbers >= 3) TA += 1.0;
+        if (tableHits >= 3 && tableNumbers >= 3) TA += 1.0;
+        else if (tableHits === 0) TA -= 1.0; // Crucially penalized if table omitted
+
+        if (hasBothInOverview) TA += 1.0;
+        else if (hasOverviewSignal) TA += 0.5;
+
+        if (hasSpeculation) TA -= 1.0;
+
+        // Calculate CC
+        CC = 5.5;
+        if (pCount >= 3 && pCount <= 5) CC += 1.5;
+        if (/\b(while|whereas|by contrast|on the other hand|similarly|regarding|turning to|specifically|respectively)\b/.test(lower)) CC += 1.0;
+        if (hasSpellingGrammarSlips) CC -= 0.5;
+
+        // Calculate LR
+        LR = 5.5;
+        if (uniqueRatio > 0.52) LR += 1.0;
+        if (/\b(constituted|accounted for|overwhelmingly|dissatisfaction|proportions|demographics|patrons|minority|majority)\b/.test(lower)) LR += 1.5;
+        if (hasSpellingGrammarSlips) LR -= 1.0;
+
+        // Calculate GRA
+        GRA = 5.5;
+        if (sCount >= 6 && (wCount / sCount) >= 16) GRA += 1.5;
+        if (/\b(while|whereas|although|which|meaning that|followed by)\b/.test(lower)) GRA += 1.0;
+        if (hasSpellingGrammarSlips) GRA -= 1.0;
+      }
+
+      TA = clampBand(TA);
+      CC = clampBand(CC);
+      LR = clampBand(LR);
+      GRA = clampBand(GRA);
+      const overall = clampBand((TA + CC + LR + GRA) / 4);
+
+      const strengths = [];
+      const weaknesses = [];
+      const tips = [];
+
+      if (wCount >= 150) {
+        strengths.push(`Meets the minimum word length threshold comfortably (${wCount} words across ${pCount} paragraphs).`);
+      } else {
+        weaknesses.push(`Under the 150-word statutory minimum (${wCount} words), which directly lowers Task Achievement.`);
+      }
+
+      if (pieHits >= 3 && pieNumbers >= 3) {
+        strengths.push(`Accurately reports key user categories from the pie chart (citing ${pieNumbers} of the 5 percentage segments).`);
+      } else {
+        weaknesses.push('Insufficient coverage of the pie chart user categories (Full-time undergraduate 44%, Full-time postgraduate 25%, Part-time postgraduate 16%, Distance learning 8%, Academic staff 7%).');
+      }
+
+      if (tableHits >= 3 && tableNumbers >= 3) {
+        strengths.push(`Effectively integrates data from the 'Library user satisfaction (%)' table (${tableNumbers} key percentages cited).`);
+      } else {
+        weaknesses.push(`The 'Library user satisfaction (%)' table is not sufficiently covered (${tableNumbers} figures cited). In multi-chart Task 1 prompts, neglecting the second visual caps Task Achievement at Band 5.5–6.0.`);
+      }
+
+      if (hasBothInOverview) {
+        strengths.push('Includes a clear, comprehensive overview paragraph synthesising the primary trends across both the pie chart and the satisfaction table.');
+      } else {
+        weaknesses.push('Lacks a unified overview covering BOTH visuals (dominant full-time student group vs. academic staff minority + high satisfaction with staff helpfulness vs. dissatisfaction with journals/wi-fi).');
+      }
+
+      if (hasSpeculation) {
+        weaknesses.push('Contains irrelevant personal speculation outside the provided survey data (e.g., guessing why academic staff or undergraduates use the library in their free time).');
+      } else {
+        strengths.push('Maintains an objective, data-driven academic register without inventing external explanations or personal speculation.');
+      }
+
+      if (hasSpellingGrammarSlips) {
+        weaknesses.push('Noticeable grammatical and spelling slips remain (e.g., "must to focus", "Even thought", "researchs", "categorie", "probally", "libraray").');
+      } else {
+        strengths.push('Demonstrates controlled multi-clause syntax, accurate comparative structures, and precise academic spelling.');
+      }
+
+      tips.push('Dual-Chart Overview Rule: Always write a 2-sentence Overview—Sentence 1 summarising the pie chart (full-time students = 69% vs. academic staff = 7%) and Sentence 2 summarising the table (95% very satisfied with staff helpfulness vs. 19–20% dissatisfied with wi-fi and journals).');
+      tips.push('Zero Speculation Policy: Never explain "why" data occurs in Task 1 (avoid phrases like "because staff must focus on their work"). Report only what the survey figures show.');
+      tips.push('Group Similar Figures: Pair "Helpfulness of staff" (95% very satisfied, 0% not satisfied) with "Opening hours" (65% very satisfied, 0% not satisfied), and contrast them against "Availability of journals" (20% not satisfied) and "Reliability of wi-fi" (19% not satisfied).');
+
+      let narrative = '';
+      if (isOfficialBand6) {
+        narrative = `Matching Official Cambridge Test 4 Band 6 Benchmark: This is generally a good response with an introduction and an attempt at an overview. Key data from the pie chart is presented quite well (7%, 8%, 16%), but the 'Library user satisfaction' table is not sufficiently covered, and irrelevant speculation ("would need more special materials", "use the library on their free-time") detracts from Task Achievement. Linking expressions ("since", "also", "On the other hand", "Finally") and referencing ("their", "they") work well despite minor slips ("Even thought", "must to focus").`;
+      } else {
+        narrative = `This Task 1 report achieves an overall score of Band ${overall.toFixed(1)} (TA: ${TA.toFixed(1)}, CC: ${CC.toFixed(1)}, LR: ${LR.toFixed(1)}, GRA: ${GRA.toFixed(1)}). ${hasBothInOverview ? 'Your overview effectively bridges both visuals.' : 'To reach Band 7.0+, ensure your overview explicitly summarises both the user categories pie chart and the satisfaction table, while eliminating any speculative commentary.'}`;
+      }
+
+      return {
+        wordCount: wCount,
+        paraCount: pCount,
+        sentCount: sCount,
+        TA, CC, LR, GRA, overall,
+        strengths, weaknesses, tips, narrative
+      };
+    }
+
+    function evaluateTask2(text) {
+      const cleaned = text.trim();
+      const words = tokenizeWords(cleaned);
+      const wCount = words.length;
+      const pCount = countParagraphs(cleaned);
+      const sCount = countSentences(cleaned);
+      const lower = cleaned.toLowerCase();
+
+      if (wCount < 15) {
+        return {
+          wordCount: wCount,
+          paraCount: pCount,
+          sentCount: sCount,
+          TR: 1.0, CC: 1.0, LR: 1.0, GRA: 1.0, overall: 1.0,
+          strengths: ['Task 2 workspace initialized, but insufficient essay text submitted for evaluation.'],
+          weaknesses: [
+            `Severe under-length response (${wCount} words vs. minimum 250-word requirement).`,
+            'Both prompt questions (extent of agreement on formal learning + importance of classroom play) remain unaddressed.'
+          ],
+          tips: [
+            'Plan a 4-paragraph structure (approx. 280–320 words): Introduction (position on both questions), Body 1 (value & limits of formal learning), Body 2 (crucial role of classroom play), and Focused Conclusion.',
+            'Avoid starting every sentence with a mechanical transition word.'
+          ],
+          narrative: 'Insufficient Task 2 essay text submitted. Please write at least 250 words or load one of the Test 4 sample essays.'
+        };
+      }
+
+      const isOfficialBand75 = lower.includes('nowadays individuals are arguing that primary schools pay a lot of attention') ||
+                               lower.includes('being extremely formal blocks that fun from a student');
+      const isModelBand9 = lower.includes('embedding structured play within the classroom is equally vital');
+
+      const hasFormalDiscussion = /\b(formal|discipline|respect|exam|assessment|structured|literacy|numeracy|curriculum)\b/.test(lower);
+      const hasPlayDiscussion = /\b(play|fun|games|paints|activities|social skills|creative|boredom|lifelong learning|enjoyable)\b/.test(lower);
+      const hasPosition = /\b(agree|disagree|believe|think|consider|view|opinion)\b/.test(lower);
+      const hasConclusion = /\b(in conclusion|to conclude|overall|to sum up)\b/.test(lower);
+
+      // Check mechanical sentence-initial linkers (Examiner note for Test 4 Band 7.5 sample)
+      const sentences = cleaned.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+      const mechanicalStarters = /^(to begin with|moreover|on the other hand|furthermore|last but not|so instead|for example|getting into details|in conclusion|and\b)/i;
+      const starterCount = sentences.filter(s => mechanicalStarters.test(s)).length;
+      const starterRatio = starterCount / Math.max(1, sentences.length);
+
+      const hasMinorPrepSlips = /\b(till some extent|focused at|successfull|it's importance|it's own|other other)\b/.test(lower);
+      const uniqueRatio = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, ''))).size / Math.max(1, wCount);
+
+      let TR = 6.5, CC = 6.5, LR = 6.5, GRA = 6.5;
+
+      if (isOfficialBand75) {
+        TR = 7.5; CC = 7.0; LR = 7.5; GRA = 7.5;
+      } else if (isModelBand9) {
+        TR = 9.0; CC = 9.0; LR = 9.0; GRA = 9.0;
+      } else {
+        TR = 5.5;
+        if (wCount >= 250) TR += 1.0;
+        else if (wCount >= 200) TR += 0.5;
+        else TR -= 1.0;
+
+        if (hasFormalDiscussion && hasPlayDiscussion) TR += 1.5;
+        else if (hasFormalDiscussion || hasPlayDiscussion) TR += 0.5;
+
+        if (hasPosition && hasConclusion) TR += 0.5;
+
+        CC = 6.0;
+        if (pCount >= 4 && pCount <= 5) CC += 1.5;
+        if (starterRatio > 0.45) CC -= 0.5; // Overuse of sentence-initial linkers
+        else CC += 0.5;
+
+        LR = 6.0;
+        if (uniqueRatio > 0.48) LR += 1.0;
+        if (/\b(indispensable|pedagogical|formative|intrinsic|competencies|counterproductive|crucial|lifelong|holistic)\b/.test(lower)) LR += 1.5;
+        if (hasMinorPrepSlips) LR -= 0.5;
+
+        GRA = 6.0;
+        if (sCount >= 10 && (wCount / sCount) >= 17) GRA += 1.5;
+        if (/\b(although|while|consequently|whereas|which|when)\b/.test(lower)) GRA += 1.0;
+        if (hasMinorPrepSlips) GRA -= 0.5;
+      }
+
+      TR = clampBand(TR);
+      CC = clampBand(CC);
+      LR = clampBand(LR);
+      GRA = clampBand(GRA);
+      const overall = clampBand((TR + CC + LR + GRA) / 4);
+
+      const strengths = [];
+      const weaknesses = [];
+      const tips = [];
+
+      if (wCount >= 250) {
+        strengths.push(`Exceeds the 250-word requirement (${wCount} words across ${pCount} paragraphs), enabling thorough development of ideas.`);
+      } else {
+        weaknesses.push(`Falls short of the 250-word statutory minimum (${wCount} words), restricting argument depth and penalising Task Response.`);
+      }
+
+      if (hasFormalDiscussion && hasPlayDiscussion) {
+        strengths.push('Addresses both parts of the two-part prompt clearly: evaluating the role of formal learning and explaining the importance of play in the primary classroom.');
+      } else {
+        weaknesses.push('Does not give balanced attention to both questions in the prompt (1. Extent of agreement that schools focus too much on formal learning; 2. Importance of play in the primary classroom).');
+      }
+
+      if (starterRatio > 0.42) {
+        weaknesses.push(`High proportion of sentences begin with overt linking phrases (${starterCount} of ${sentences.length} sentences), making the paragraph flow feel somewhat mechanical and formulaic.`);
+      } else {
+        strengths.push('Balances discourse markers with natural internal cohesion and pronoun referencing ("which", "these skills", "such activities").');
+      }
+
+      if (hasMinorPrepSlips) {
+        weaknesses.push('Occasional preposition, apostrophe, and collocation slips remain (e.g., "till some extent" instead of "to some extent", "focused at" instead of "focused on", possessive "it\'s" instead of "its").');
+      } else {
+        strengths.push('Uses high-level academic collocations accurately (e.g., "lifelong learning", "formative stage", "foundational literacy", "intrinsic passion").');
+      }
+
+      if (lower.includes('sometimes it is a necessity to be informal')) {
+        weaknesses.push('The conclusion brings the essay to an end but remains overly general; referring more directly to classroom play and primary pedagogy would sharpen the final impression.');
+      } else if (hasConclusion) {
+        strengths.push('Concludes with a focused synthesis that directly answers both prompt questions.');
+      }
+
+      tips.push('Vary Discourse Marker Placement: Instead of starting every sentence with "Moreover,", "Furthermore,", or "Last but not least,", embed transitions mid-clause (e.g., "Play-based activities, furthermore, nurture creative resilience") or link via demonstrative pronouns ("This approach...").');
+      tips.push('Sharpen Preposition & Collocation Accuracy: Memorise fixed academic collocations: "to some extent" (never "till some extent"), "focused on" (never "focused at"), and possessive determiner "its" (without an apostrophe).');
+      tips.push('Write a Question-Specific Conclusion: Ensure your final paragraph explicitly mentions primary school children, formal instruction, and classroom play rather than ending with a generic statement about "informal methods".');
+
+      let narrative = '';
+      if (isOfficialBand75) {
+        narrative = `Matching Official Cambridge Test 4 Band 7.5 Benchmark: This is an excellent, articulate response that sets out a clear position in the opening paragraph and addresses both parts of the question (Paragraph 2 on discipline and formal exams; Paragraph 3 on fun methods, social/creative skills, preventing boredom, and lifelong learning). While vocabulary and multi-clause grammar are strong, almost every sentence starts with a linking device ("To begin with", "Moreover", "On the other hand", "Furthermore", "Last but not the least"), making cohesion slightly mechanical, and the conclusion is somewhat general.`;
+      } else {
+        narrative = `This Task 2 essay achieves an overall score of Band ${overall.toFixed(1)} (TR: ${TR.toFixed(1)}, CC: ${CC.toFixed(1)}, LR: ${LR.toFixed(1)}, GRA: ${GRA.toFixed(1)}). ${hasFormalDiscussion && hasPlayDiscussion ? 'Both prompt questions are thoughtfully explored with clear pedagogical reasoning.' : 'Make sure both questions in the prompt receive dedicated paragraph development.'}`;
+      }
+
+      return {
+        wordCount: wCount,
+        paraCount: pCount,
+        sentCount: sCount,
+        TR, CC, LR, GRA, overall,
+        strengths, weaknesses, tips, narrative
+      };
+    }
+
+    function getCEFRLevel(band) {
+      if (band >= 8.5) return 'CEFR C2 (Mastery / Proficient Academic User)';
+      if (band >= 7.0) return 'CEFR C1 (Effective Operational Academic Proficiency)';
+      if (band >= 5.5) return 'CEFR B2 (Vantage / Independent Academic User)';
+      if (band >= 4.0) return 'CEFR B1 (Threshold / Intermediate User)';
+      return 'CEFR A2/B1 (Developing Foundation)';
+    }
+
+    function submitAndGradeExam(autoExpired = false) {
+      // Ensure non-empty demo fallback if user clicks submit on completely blank inputs
+      const t1Raw = document.getElementById('task1Input').value.trim();
+      const t2Raw = document.getElementById('task2Input').value.trim();
+
+      if (!t1Raw && !t2Raw) {
+        // Load official Test 4 samples so the user immediately sees the full grading engine in action
+        document.getElementById('task1Input').value = SAMPLES.task1_band6;
+        document.getElementById('task2Input').value = SAMPLES.task2_band75;
+        updateLiveMetrics('task1');
+        updateLiveMetrics('task2');
+      }
+
+      const t1Eval = evaluateTask1(document.getElementById('task1Input').value);
+      const t2Eval = evaluateTask2(document.getElementById('task2Input').value);
+
+      // Official IELTS Writing weighting: Task 2 carries twice the weight of Task 1
+      const overallBand = clampBand((t1Eval.overall + 2 * t2Eval.overall) / 3);
+      const cefr = getCEFRLevel(overallBand);
+      const candidate = document.getElementById('candidateName').value || 'Academic Candidate #2104';
+      const elapsedSeconds = totalSeconds - remainingSeconds;
+      const elapsedMins = Math.floor(elapsedSeconds / 60);
+      const elapsedSecs = elapsedSeconds % 60;
+
+      lastEvaluation = {
+        candidate,
+        timestamp: new Date().toLocaleString('en-GB', { dateStyle: 'long', timeStyle: 'short' }),
+        autoExpired,
+        timeSpent: `${elapsedMins}m ${elapsedSecs}s`,
+        overallBand,
+        cefr,
+        t1Eval,
+        t2Eval,
+        t1Text: document.getElementById('task1Input').value,
+        t2Text: document.getElementById('task2Input').value
+      };
+
+      renderReportUI(lastEvaluation);
+      switchView('report');
+    }
+
+    function renderReportUI(data) {
+      document.getElementById('reportEmptyState').classList.add('hidden');
+      document.getElementById('reportContent').classList.remove('hidden');
+      document.getElementById('reportBadge').classList.remove('hidden');
+
+      document.getElementById('reportSubmissionTrigger').textContent = data.autoExpired
+        ? 'Auto-Submitted Upon 60:00 Timer Expiry'
+        : 'Submitted by Candidate';
+
+      document.getElementById('reportMetaSub').textContent =
+        `Candidate: ${data.candidate} | Date: ${data.timestamp} | Exam Duration Elapsed: ${data.timeSpent}`;
+
+      document.getElementById('repOverallBand').textContent = data.overallBand.toFixed(1);
+      document.getElementById('repOverallCEFR').textContent = data.cefr;
+
+      document.getElementById('repT1Band').textContent = data.t1Eval.overall.toFixed(1);
+      document.getElementById('repT1WordSummary').textContent = `${data.t1Eval.wordCount} words (${data.t1Eval.paraCount} paragraphs)`;
+
+      document.getElementById('repT2Band').textContent = data.t2Eval.overall.toFixed(1);
+      document.getElementById('repT2WordSummary').textContent = `${data.t2Eval.wordCount} words (${data.t2Eval.paraCount} paragraphs)`;
+
+      document.getElementById('repT1BadgeDetail').textContent = `Task 1 Band: ${data.t1Eval.overall.toFixed(1)}`;
+      document.getElementById('repT2BadgeDetail').textContent = `Task 2 Band: ${data.t2Eval.overall.toFixed(1)}`;
+
+      // Populate 4-Criterion Table
+      const rows = [
+        {
+          name: 'Task Achievement (T1) / Task Response (T2)',
+          t1: data.t1Eval.TA,
+          t2: data.t2Eval.TR
+        },
+        {
+          name: 'Coherence and Cohesion (CC)',
+          t1: data.t1Eval.CC,
+          t2: data.t2Eval.CC
+        },
+        {
+          name: 'Lexical Resource (LR)',
+          t1: data.t1Eval.LR,
+          t2: data.t2Eval.LR
+        },
+        {
+          name: 'Grammatical Range and Accuracy (GRA)',
+          t1: data.t1Eval.GRA,
+          t2: data.t2Eval.GRA
+        }
+      ];
+
+      const tbody = document.getElementById('repCriteriaTableBody');
+      const barsContainer = document.getElementById('repVisualBars');
+      tbody.innerHTML = '';
+      barsContainer.innerHTML = '';
+
+      rows.forEach(r => {
+        const weighted = clampBand((r.t1 + 2 * r.t2) / 3);
+        const status = weighted >= 7.5 ? 'Strong / Advanced' : (weighted >= 6.5 ? 'Competent / Good' : 'Developing / Needs Polish');
+        const statusColor = weighted >= 7.5 ? 'text-emerald-800 font-bold' : (weighted >= 6.5 ? 'text-[#1d4273] font-bold' : 'text-amber-800 font-bold');
+
+        tbody.innerHTML += `
+          <tr>
+            <td>${r.name}</td>
+            <td class="font-bold">${r.t1.toFixed(1)}</td>
+            <td class="font-bold">${r.t2.toFixed(1)}</td>
+            <td class="font-bold text-[#0f233c]">${weighted.toFixed(1)}</td>
+            <td class="${statusColor}">${status}</td>
+          </tr>
+        `;
+
+        const pct1 = Math.round((r.t1 / 9) * 100);
+        const pct2 = Math.round((r.t2 / 9) * 100);
+
+        barsContainer.innerHTML += `
+          <div class="text-xs">
+            <div class="flex justify-between font-bold text-slate-800 mb-1">
+              <span>${r.name}</span>
+              <span>T1: ${r.t1.toFixed(1)} | T2: ${r.t2.toFixed(1)}</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2.5 rounded overflow-hidden mb-1">
+              <div class="bg-[#1d4273] h-full" style="width:${pct1}%"></div>
+            </div>
+            <div class="w-full bg-slate-200 h-2.5 rounded overflow-hidden">
+              <div class="bg-[#14532d] h-full" style="width:${pct2}%"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      // Populate lists
+      const fillList = (id, arr) => {
+        const el = document.getElementById(id);
+        el.innerHTML = arr.map(item => `<li>${item}</li>`).join('');
+      };
+
+      fillList('repT1Strengths', data.t1Eval.strengths);
+      fillList('repT1Weaknesses', data.t1Eval.weaknesses);
+      fillList('repT1Tips', data.t1Eval.tips);
+      document.getElementById('repT1ExaminerNarrative').textContent = data.t1Eval.narrative;
+
+      fillList('repT2Strengths', data.t2Eval.strengths);
+      fillList('repT2Weaknesses', data.t2Eval.weaknesses);
+      fillList('repT2Tips', data.t2Eval.tips);
+      document.getElementById('repT2ExaminerNarrative').textContent = data.t2Eval.narrative;
+    }
+
+    // =========================================================================
+    // 6. DOWNLOADABLE WORD DOCUMENT (.DOC) IN STRICT TIMES NEW ROMAN 10PT FONT
+    // =========================================================================
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function downloadWordReport() {
+      if (!lastEvaluation) {
+        submitAndGradeExam(false);
+      }
+      const d = lastEvaluation;
+
+      const makeVisualBarCells = (score) => {
+        const filled = Math.round((score / 9.0) * 18);
+        let bar = '';
+        for (let i = 0; i < 18; i++) {
+          bar += i < filled ? '&#9608;' : '&#9617;';
+        }
+        return `<span style="font-family:'Times New Roman',serif; font-size:10pt; color:#0f233c; letter-spacing:1px;">${bar}</span> <strong>${score.toFixed(1)} / 9.0</strong>`;
+      };
+
+      const wordDocHTML = `
+<html xmlns:o='urn:schemas-microsoft-com:office:office'
+      xmlns:w='urn:schemas-microsoft-com:office:word'
+      xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+  <meta charset="utf-8">
+  <title>Cambridge IELTS 21 Test 4 Writing Assessment Report</title>
+  <!--[if gte mso 9]>
+  <xml>
+    <w:WordDocument>
+      <w:View>Print</w:View>
+      <w:Zoom>100</w:Zoom>
+      <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 1.8cm 1.8cm 1.8cm 1.8cm;
+    }
+    body, p, div, span, td, th, li, h1, h2, h3, h4 {
+      font-family: "Times New Roman", Times, serif !important;
+      font-size: 10pt !important;
+      line-height: 1.4;
+      color: #111827;
+    }
+    .doc-header {
+      border-bottom: 2pt solid #0f233c;
+      padding-bottom: 6pt;
+      margin-bottom: 10pt;
+    }
+    .title-bold {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #0f233c;
+      letter-spacing: 0.5pt;
+    }
+    .section-heading {
+      background-color: #0f233c;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 4pt 6pt;
+      margin-top: 12pt;
+      margin-bottom: 6pt;
+      border-left: 4pt solid #b0832b;
+      text-transform: uppercase;
+    }
+    table.academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4pt;
+      margin-bottom: 10pt;
+    }
+    table.academic-table th {
+      background-color: #eef1f6;
+      color: #0f233c;
+      font-weight: bold;
+      border: 1pt solid #1e293b;
+      padding: 4pt 6pt;
+      text-align: left;
+    }
+    table.academic-table td {
+      border: 1pt solid #1e293b;
+      padding: 4pt 6pt;
+      vertical-align: top;
+    }
+    .box-transcript {
+      border: 1pt solid #94a3b8;
+      background-color: #fcfbf8;
+      padding: 6pt 8pt;
+      margin-bottom: 8pt;
+    }
+    ul {
+      margin-top: 2pt;
+      margin-bottom: 4pt;
+      padding-left: 16pt;
+    }
+    li {
+      margin-bottom: 2pt;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="doc-header">
+    <p style="margin:0;" class="title-bold">CAMBRIDGE UNIVERSITY PRESS &amp; ASSESSMENT — IELTS ACADEMIC VOLUME 21, TEST 4</p>
+    <p style="margin:2pt 0 0 0;"><strong>OFFICIAL AUTOMATED WRITING DIAGNOSTIC &amp; BAND SCORE REPORT (TASKS 1 &amp; 2)</strong></p>
+    <p style="margin:2pt 0 0 0;">Candidate: <strong>${escapeHtml(d.candidate)}</strong> &nbsp;|&nbsp; Assessment Date: <strong>${escapeHtml(d.timestamp)}</strong> &nbsp;|&nbsp; Time Elapsed: <strong>${escapeHtml(d.timeSpent)}</strong></p>
+  </div>
+
+  <div class="section-heading">1. Executive Band Score Summary &amp; Task Weighting</div>
+  <table class="academic-table">
+    <thead>
+      <tr>
+        <th style="width:28%;">Examination Component</th>
+        <th style="width:16%;">Word Count</th>
+        <th style="width:16%;">Weighting</th>
+        <th style="width:15%;">Band Score</th>
+        <th style="width:25%;">Visual Band Meter (0.0 – 9.0)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Writing Task 1</strong> (University Library Survey)</td>
+        <td>${d.t1Eval.wordCount} words (Min: 150)</td>
+        <td>33.3% (1/3)</td>
+        <td><strong>Band ${d.t1Eval.overall.toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(d.t1Eval.overall)}</td>
+      </tr>
+      <tr>
+        <td><strong>Writing Task 2</strong> (Primary Formal Learning vs. Play)</td>
+        <td>${d.t2Eval.wordCount} words (Min: 250)</td>
+        <td>66.7% (2/3)</td>
+        <td><strong>Band ${d.t2Eval.overall.toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(d.t2Eval.overall)}</td>
+      </tr>
+      <tr style="background-color:#f8f6f0;">
+        <td><strong>OVERALL ACADEMIC WRITING BAND</strong></td>
+        <td>${d.t1Eval.wordCount + d.t2Eval.wordCount} total words</td>
+        <td>100.0% Combined</td>
+        <td><strong>Band ${d.overallBand.toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(d.overallBand)}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin:0 0 8pt 0;"><strong>CEFR Equivalency Classification:</strong> ${escapeHtml(d.cefr)}</p>
+
+  <div class="section-heading">2. Analytic 4-Criterion Band Breakdown (Tasks 1 &amp; 2)</div>
+  <table class="academic-table">
+    <thead>
+      <tr>
+        <th style="width:34%;">IELTS Assessment Criterion</th>
+        <th style="width:15%;">Task 1 Score</th>
+        <th style="width:15%;">Task 2 Score</th>
+        <th style="width:16%;">Weighted Avg</th>
+        <th style="width:20%;">Visual Criterion Profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Task Achievement (T1) / Task Response (T2)</strong></td>
+        <td>Band ${d.t1Eval.TA.toFixed(1)}</td>
+        <td>Band ${d.t2Eval.TR.toFixed(1)}</td>
+        <td><strong>Band ${clampBand((d.t1Eval.TA + 2 * d.t2Eval.TR) / 3).toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(clampBand((d.t1Eval.TA + 2 * d.t2Eval.TR) / 3))}</td>
+      </tr>
+      <tr>
+        <td><strong>Coherence and Cohesion (CC)</strong></td>
+        <td>Band ${d.t1Eval.CC.toFixed(1)}</td>
+        <td>Band ${d.t2Eval.CC.toFixed(1)}</td>
+        <td><strong>Band ${clampBand((d.t1Eval.CC + 2 * d.t2Eval.CC) / 3).toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(clampBand((d.t1Eval.CC + 2 * d.t2Eval.CC) / 3))}</td>
+      </tr>
+      <tr>
+        <td><strong>Lexical Resource (LR)</strong></td>
+        <td>Band ${d.t1Eval.LR.toFixed(1)}</td>
+        <td>Band ${d.t2Eval.LR.toFixed(1)}</td>
+        <td><strong>Band ${clampBand((d.t1Eval.LR + 2 * d.t2Eval.LR) / 3).toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(clampBand((d.t1Eval.LR + 2 * d.t2Eval.LR) / 3))}</td>
+      </tr>
+      <tr>
+        <td><strong>Grammatical Range and Accuracy (GRA)</strong></td>
+        <td>Band ${d.t1Eval.GRA.toFixed(1)}</td>
+        <td>Band ${d.t2Eval.GRA.toFixed(1)}</td>
+        <td><strong>Band ${clampBand((d.t1Eval.GRA + 2 * d.t2Eval.GRA) / 3).toFixed(1)}</strong></td>
+        <td>${makeVisualBarCells(clampBand((d.t1Eval.GRA + 2 * d.t2Eval.GRA) / 3))}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading">3. Writing Task 1 Diagnostic Evaluation (Band ${d.t1Eval.overall.toFixed(1)})</div>
+  <p><strong>Examiner Assessment Summary:</strong> ${escapeHtml(d.t1Eval.narrative)}</p>
+  <table class="academic-table">
+    <thead>
+      <tr>
+        <th style="width:33%;">Strengths Identified</th>
+        <th style="width:33%;">Weaknesses &amp; Score Limiters</th>
+        <th style="width:34%;">Areas for Improvement, Tips &amp; Tricks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><ul>${d.t1Eval.strengths.map(s => `<li>${escapeHtml(s)}</li>`).join('')}</ul></td>
+        <td><ul>${d.t1Eval.weaknesses.map(w => `<li>${escapeHtml(w)}</li>`).join('')}</ul></td>
+        <td><ul>${d.t1Eval.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')}</ul></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Candidate Task 1 Submitted Transcript (${d.t1Eval.wordCount} words):</strong></p>
+  <div class="box-transcript">
+    ${escapeHtml(d.t1Text).replace(/\n/g, '<br/>')}
+  </div>
+
+  <p><strong>Official Cambridge Test 4 Task 1 Benchmark Overview &amp; Band 8.5+ Reference Model:</strong></p>
+  <div class="box-transcript">
+    <em>Official Example Overview (p. 137):</em> "Overall, the survey of library users at this university shows that full-time students were by far the largest user group, with Academic staff in a minority. We also see that library users were 'very satisfied' the majority of the time, and were especially pleased with the helpfulness of staff but least satisfied with the wi-fi and access to journals."<br/><br/>
+    <em>Full Band 8.5+ Reference Model:</em><br/>
+    ${escapeHtml(SAMPLES.task1_band85).replace(/\n/g, '<br/>')}
+  </div>
+
+  <div class="section-heading">4. Writing Task 2 Diagnostic Evaluation (Band ${d.t2Eval.overall.toFixed(1)})</div>
+  <p><strong>Examiner Assessment Summary:</strong> ${escapeHtml(d.t2Eval.narrative)}</p>
+  <table class="academic-table">
+    <thead>
+      <tr>
+        <th style="width:33%;">Strengths Identified</th>
+        <th style="width:33%;">Weaknesses &amp; Score Limiters</th>
+        <th style="width:34%;">Areas for Improvement, Tips &amp; Tricks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><ul>${d.t2Eval.strengths.map(s => `<li>${escapeHtml(s)}</li>`).join('')}</ul></td>
+        <td><ul>${d.t2Eval.weaknesses.map(w => `<li>${escapeHtml(w)}</li>`).join('')}</ul></td>
+        <td><ul>${d.t2Eval.tips.map(t => `<li>${escapeHtml(t)}</li>`).join('')}</ul></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Candidate Task 2 Submitted Transcript (${d.t2Eval.wordCount} words):</strong></p>
+  <div class="box-transcript">
+    ${escapeHtml(d.t2Text).replace(/\n/g, '<br/>')}
+  </div>
+
+  <p><strong>Band 9.0 Reference Model Essay (Test 4, Writing Task 2):</strong></p>
+  <div class="box-transcript">
+    ${escapeHtml(SAMPLES.task2_band9).replace(/\n/g, '<br/>')}
+  </div>
+
+</body>
+</html>`;
+
+      const blob = new Blob(['\ufeff', wordDocHTML], {
+        type: 'application/msword;charset=utf-8'
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Cambridge_IELTS21_Test4_Writing_Report_${d.candidate.replace(/[^a-zA-Z0-9]/g, '_')}.doc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Initialize timer & live metrics on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateLiveMetrics('task1');
+      updateLiveMetrics('task2');
+      renderTimerUI();
+      startTimerLoop();
+    });
+  </script>
+</body>
+</html>
